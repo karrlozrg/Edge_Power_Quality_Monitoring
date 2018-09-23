@@ -66,4 +66,3 @@ function createURLTimeSeries(assetId, aspectName, from, to, variableNames){
 }
 
 module.exports = api;
-//4
