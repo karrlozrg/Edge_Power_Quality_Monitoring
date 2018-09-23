@@ -1,0 +1,6 @@
+---
+applications:
+- name: hackathon
+  instances: 1
+  memory: 1GB
+  host: autfabui

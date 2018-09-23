@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!--SOCKETS-->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!--GRAPHS-->
+  <script type="text/javascript" src="/libraries/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="/libraries/hammer.min.js"></script>
+  <script type="text/javascript" src="/libraries/chartjs-plugin-zoom.js"></script>
+  <!-- JQUERY -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- GAUGE METER -->
+  <script src="libraries/raphael-2.1.4.min.js"></script>
+  <script src="libraries/justgage.js"></script>
+  <script src="javascripts/Gauges.js"></script>
+
+  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.1/c3.min.css"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.1/c3.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mindsphere</title>
+</head>
+
+<body>
+<script type="text/javascript" src="/javascripts/Tabs.js"></script>
+
+<!--Navigation bar-->
+<div class="w3-top">
+  <div class="w3-bar w3-theme-l3 w3-top w3-left-align w3-large" id="myNavbar">
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large w3-right w3-hide-large " href="javascript:void(0)" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'realTime')">Real Time</a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'current')">Current</a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'voltage')">Voltage</a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'power')">Power</a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'cos')">Power Factor</a>
+    <a class="w3-bar-item w3-button  w3-hover-dark-grey w3-large tablinks" onclick="openTab(event, 'googlemap')">Map</a>
+  </div>
+</div>
+
+<!-- REALTIME -->
+<div class="w3-container w3-theme-l5 w3-column w3-padding-48 w3-animate-top w3-border tabcontent" id="realTime" style="display: block;">
+  <!-- FIRST ROW -->
+  <div class="w3-row">
+    <!-- CURRENT -->
+    <div class="w3-half w3-container">
+      <button class="w3-button" id="btnStatCurrent">show statistics</button>
+      <table class="w3-table-all w3-hoverable" id="tbCurrentRT" style="display: none;">
+        <tbody>
+        <tr>
+          <th>Line</th>
+          <th>Average</th>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td id="cL1ART">2</td>
+          <td id="cL1MinRT">3</td>
+          <td id="cL1MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td id="cL2ART">2</td>
+          <td id="cL2MinRT">3</td>
+          <td id="cL2MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td id="cL3ART">2</td>
+          <td id="cL3MinRT">3</td>
+          <td id="cL3MaxRT">4</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="chartAreaWrapper2">
+        <canvas id="chartRTCurrent"></canvas>
+      </div>
+    </div>
+    <!-- VOLTAGE -->
+    <div class="w3-half w3-container">
+      <button class="w3-button" id="btnStatVoltage">show statistics</button>
+      <table class="w3-table-all w3-hoverable" id="tbVoltageRT" style="display: none;">
+        <tbody>
+        <tr>
+          <th>Line</th>
+          <th>Average</th>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td id="vL1ART">2</td>
+          <td id="vL1MinRT">3</td>
+          <td id="vL1MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td id="vL2ART">2</td>
+          <td id="vL2MinRT">3</td>
+          <td id="vL2MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td id="vL3ART">2</td>
+          <td id="vL3MinRT">3</td>
+          <td id="vL3MaxRT">4</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="chartAreaWrapper2">
+        <canvas id="chartRTVoltage"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- SECOND ROW -->
+  <div class="w3-row">
+    <!-- POWER -->
+    <div class="w3-half w3-container">
+      <button class="w3-button" id="btnStatPower">show statistics</button>
+      <table class="w3-table-all w3-hoverable" id="tbPowerRT" style="display: none;">
+        <tbody>
+        <tr>
+          <th>Power</th>
+          <th>Average</th>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td id="pL1ART">2</td>
+          <td id="pL1MinRT">3</td>
+          <td id="pL1MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>Reactive</td>
+          <td id="pL2ART">2</td>
+          <td id="pL2MinRT">3</td>
+          <td id="pL2MaxRT">4</td>
+        </tr>
+        <tr>
+          <td>Apparent</td>
+          <td id="pL3ART">2</td>
+          <td id="pL3MinRT">3</td>
+          <td id="pL3MaxRT">4</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="chartAreaWrapper2">
+        <canvas id="ChartRTPower"></canvas>
+      </div>
+    </div>
+    <div class="w3-half w3-container gaugeContainer">
+      <div id="gauge1" class="gauge"></div>
+      <div id="gauge2" class="gauge"></div>
+      <div id="gauge3" class="gauge"></div>
+      <script type="text/javascript" src="/javascripts/Gauges.js"></script>
+    </div>
+    <script src="javascripts/RealTimeCharts.js"></script>
+  </div>
+</div>
+
+  <!-- CURRENT -->
+  <div class="w3-display-container w3-theme-l5 w3-column w3-padding-64 w3-animate-top w3-border tabcontent" id="current" style="height:100%; display: none">
+    <div class="w3-container">
+      <h1>Current</h1>
+    </div>
+
+    <div class="w3-container w3-border w3-margin">
+
+      <!-- DATE INPUT and TABLE-->
+      <div class="w3-quarter w3-container" style="padding: 15px">
+        <label>Start time</label>
+        <input type="datetime-local" id="startDateCurrent" value="2018-06-01T00:00:00">
+        <label>End time</label>
+        <input type="datetime-local" id="endDateCurrent" value="2018-06-01T00:00:00">
+        <button class="btn btn-primary btnMargin" id="btnUpdateCurrent" />Update</button>
+        <table id="tbCurrent" class="w3-table-all w3-hoverable">
+          <tbody>
+            <tr>
+              <th>Line</th>
+              <th>Average</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="cL1A">2</td>
+              <td id="cL1Min">3</td>
+              <td id="cL1Max">4</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="cL2A">2</td>
+              <td id="cL2Min">3</td>
+              <td id="cL2Max">4</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="cL3A">2</td>
+              <td id="cL3Min">3</td>
+              <td id="cL3Max">4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary btnMargin" onclick='downloadCSV("Current")' />Download CSV</button>
+      </div>
+
+      <!-- GRAPH -->
+      <div class="w3-rest w3-container">
+        <div class="chartAreaWrapper2" id="CAW2current">
+          <canvas id="chartCurrent"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLTAGE -->
+  <div class="w3-display-container w3-theme-l5 w3-column w3-padding-64 w3-animate-top w3-border tabcontent" id="voltage">
+    <div class="w3-container">
+      <h1>Voltage</h1>
+    </div>
+
+    <div class="w3-container w3-border w3-margin">
+
+      <!-- DATE INPUT -->
+      <div class="w3-quarter w3-container" style="padding: 15px">
+        <label>Start time</label>
+        <input type="datetime-local" id="startDateVoltage" value="2018-06-01T00:00:00">
+        <label>End time</label>
+        <input type="datetime-local" id="endDateVoltage" value="2018-06-01T00:00:00">
+        <button class="btn btn-primary btnMargin" id="btnUpdateVoltage" />Update</button>
+        <table id="tbVoltage" class="w3-table-all w3-hoverable">
+          <tbody>
+            <tr>
+              <th>Line</th>
+              <th>Average</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="vL1A">2</td>
+              <td id="vL1Min">3</td>
+              <td id="vL1Max">4</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="vL2A">2</td>
+              <td id="vL2Min">3</td>
+              <td id="vL2Max">4</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="vL3A">2</td>
+              <td id="vL3Min">3</td>
+              <td id="vL3Max">4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary btnMargin" onclick='downloadCSV("Voltage")' />Download CSV</button>
+      </div>
+
+      <!-- GRAPH -->
+      <div class="w3-rest w3-container">
+        <div class="chartAreaWrapper2" id="CAW2voltage">
+          <canvas id="chartVoltage"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- POWER -->
+  <div class="w3-display-container w3-theme-l5 w3-column w3-padding-64 w3-animate-top w3-border tabcontent" id="power">
+    <div class="w3-container">
+      <h1>Power</h1>
+    </div>
+
+    <div class="w3-container w3-border w3-margin">
+
+      <!-- DATE INPUT and TABLE-->
+      <div class="w3-quarter w3-container" style="padding: 15px">
+        <label>Start time</label>
+        <input type="datetime-local" id="startDatePower" value="2018-06-01T00:00:00">
+        <label>End time</label>
+        <input type="datetime-local" id="endDatePower" value="2018-06-01T00:00:00">
+        <button class="btn btn-primary btnMargin" id="btnUpdatePower" />Update</button>
+        <table id="tbpower" class="w3-table-all w3-hoverable">
+          <tbody>
+            <tr>
+              <th>Line</th>
+              <th>Average</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+            <tr>
+              <td>Active</td>
+              <td id="pL1A">2</td>
+              <td id="pL1Min">3</td>
+              <td id="pL1Max">4</td>
+            </tr>
+            <tr>
+              <td>Reactive</td>
+              <td id="pL2A">2</td>
+              <td id="pL2Min">3</td>
+              <td id="pL2Max">4</td>
+            </tr>
+            <tr>
+              <td>Apparent</td>
+              <td id="pL3A">2</td>
+              <td id="pL3Min">3</td>
+              <td id="pL3Max">4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary btnMargin" onclick='downloadCSV("Power")' />Download CSV</button>
+      </div>
+
+      <!-- GRAPH -->
+      <div class="w3-rest w3-container">
+        <div class="chartAreaWrapper2" id="CAW2power">
+          <canvas id="chartPower"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER FACTOR -->
+  <div class="w3-display-container w3-theme-l5 w3-column w3-padding-64 w3-animate-top w3-border tabcontent" id="cos">
+    <div class="w3-container">
+      <h1>Power Factor</h1>
+    </div>
+
+    <div class="w3-container w3-border w3-margin">
+
+      <!-- DATE INPUT and TABLE-->
+      <div class="w3-quarter w3-container" style="padding: 15px">
+        <label>Start time</label>
+        <input type="datetime-local" id="startDatePowerFactor" value="2018-06-01T00:00:00">
+        <label>End time</label>
+        <input type="datetime-local" id="endDatePowerFactor" value="2018-06-01T00:00:00">
+        <button class="btn btn-primary btnMargin" id="btnUpdatePowerFactor" />Update</button>
+        <table id="tbpowerFactor" class="w3-table-all w3-hoverable">
+          <tbody>
+            <tr>
+              <th>Line</th>
+              <th>Average</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="pfL1A">2</td>
+              <td id="pfL1Min">3</td>
+              <td id="pfL1Max">4</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="pfL2A">2</td>
+              <td id="pfL2Min">3</td>
+              <td id="pfL2Max">4</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="pfL3A">2</td>
+              <td id="pfL3Min">3</td>
+              <td id="pfL3Max">4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary btnMargin" onclick='downloadCSV("Power Factor")' />Download CSV</button>
+      </div>
+
+      <!-- GRAPH -->
+      <div class="w3-rest w3-container">
+        <div class="chartAreaWrapper2" id="CAW2powerFactor">
+          <canvas id="chartPowerFactor"></canvas>
+        </div>
+        <!-- <script src="javascripts/LineChartZoom.js"></script> -->
+      </div>
+    </div>
+  </div>
+  <script src="javascripts/HistoricChart.js"></script>
+  <script src="javascripts/CSVExport.js"></script>
+
+<!-- MAP -->
+<div class="w3-display-container w3-theme-l5 w3-column w3-animate-top w3-border tabcontent" id="googlemap">
+  <div id="myMap" style="width:100%;height:550px;"></div>
+  <script src="javascripts/GoogleMap.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8qVDlrLvBeuc0p1wP3WTUxu1kENQKUs&callback=myMap"></script>
+</div>
+
+
+
+<!--MindSphere API-->
+<script type="text/javascript" src="/javascripts/util.js"></script>
+<script type="text/javascript" src="/javascripts/MindSphereAPIConnect.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+/* TABS */
+
+/* #current {
+  display: none;
+}
+
+#voltage {
+  display: none;
+} */
+
+/* .gauge {
+  width: 200px;
+  height: 150px;
+  display: inline-block;
+} */
+
+.gaugeContainer {
+  padding-top: 100px;
+}
+
+#gauge1, #gauge2, #gauge3 {
+  width: 200px;
+  height: 150px;
+  display: inline-block;
+  margin-top: 100px;
+}
+
+#googlemap {
+  display: none;
+  height: 100%;
+  padding-right: 28px;
+  padding-left: 28px;
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+/* #users {
+  display: none;
+}
+
+#cos {
+  display: none;
+  height: 100%;
+} */
+
+#power, #cos, #users, #voltage, #current, #notifications {
+  height: 100%;
+  display: none;
+}
+
+/*  */
+
+.chartWrapper {
+  position: relative;
+}
+
+.w3-col>.btn-primary {
+  display: none;
+}
+
+.btnMargin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.chartWrapper>canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.chartAreaWrapper {
+  overflow-x: scroll;
+  position: relative;
+  width: 100%;
+}
+
+.chartAreaWrapper2 {
+  position: relative;
+  height: 300px;
+}
+
+.w3-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#slusers {
+  width: 100%;
+}
+
+#users {
+  margin-top: 20px;
+  /* margin-left: 15%;
+  margin-right: 15%; */
+}
+
+/* table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+} */
+
+th {
+  text-align: center;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+#updateUser {
+  display: none;
+}
+
+#btnRegisterSend, #btnUpdateSend {
+  display: none;
+  margin-top: 10px;
+}
+
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
