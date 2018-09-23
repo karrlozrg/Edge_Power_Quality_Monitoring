@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e33399b2-a302-4d43-9109-9fbf56c5a4a8" name="Default" comment="Test04">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e33399b2-a302-4d43-9109-9fbf56c5a4a8" name="Default" comment="change .gitignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,9 +32,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="2" />
+          <entry key="gitignore" value="5" />
           <entry key="js" value="8" />
-          <entry key="txt" value="101" />
+          <entry key="txt" value="118" />
           <entry key="www" value="13" />
           <entry key="yml" value="9" />
         </counts>
@@ -36,7 +42,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="21" />
-          <entry key="PLAIN_TEXT" value="103" />
+          <entry key="PLAIN_TEXT" value="123" />
           <entry key="YAML" value="9" />
         </counts>
       </usages-collector>
@@ -46,7 +52,7 @@
           <entry key="js" value="4" />
           <entry key="md" value="1" />
           <entry key="www" value="1" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -54,7 +60,7 @@
           <entry key="JavaScript" value="5" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -73,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+            <state relative-caret-position="796">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -202,7 +208,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537710100245" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537710809985" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -216,11 +222,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspaces\Nodejs\Hackathon\Hackathon" />
       <recent name="D:\workspaces\MindSphere\AutFab\views" />
       <recent name="D:\workspaces\MindSphere\AutFab\public\stylesheets" />
       <recent name="D:\workspaces\MindSphere\AutFab\public\javascripts" />
       <recent name="D:\workspaces\MindSphere\AutFab" />
-      <recent name="D:\workspaces\MindSphere\AutFab\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -293,7 +299,7 @@
       <workItem from="1530352189921" duration="275000" />
       <workItem from="1537118926540" duration="2301000" />
       <workItem from="1537701959505" duration="151000" />
-      <workItem from="1537702162555" duration="7916000" />
+      <workItem from="1537702162555" duration="8619000" />
     </task>
     <task id="LOCAL-00001" summary="Master V1.0.0">
       <created>1537705782460</created>
@@ -372,11 +378,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537707864365</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="change .gitignore">
+      <created>1537710135627</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1537710135627</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151833000" />
+    <option name="totallyTimeSpent" value="152536000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,7 +525,8 @@
     <MESSAGE value="to Test02" />
     <MESSAGE value="Revert &quot;Revert &quot;Test02&quot;&quot;&#10;&#10;This reverts commit c54758f" />
     <MESSAGE value="Master V1.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Master V1.0.0" />
+    <MESSAGE value="change .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="change .gitignore" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -664,10 +678,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.ideaxxx/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        <state relative-caret-position="796">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
         </state>
       </provider>
     </entry>
