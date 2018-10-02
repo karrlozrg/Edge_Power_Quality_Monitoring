@@ -11,6 +11,21 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+//****************OpcUA test****************************
+//custom info change for different servers and NodeIds
+var Edge= require('./EdgeOpcUAClient');
+
+const endpointUrl= "opc.tcp://md1y180c:62541/Quickstarts/ReferenceServer";
+const nodeId1="ns=2;s=Motor.Gauge";
+const nodeId2="ns=2;s=Carrier1.Position";
+
+Edge.connect(endpointUrl,1000,function(args) {
+    console.log("Edge!! voltage: "+args.EdgeData.voltage+", ampere: "+ args.EdgeData.current);
+    //console.log("Edge"+args.EdgeData.toString());
+},nodeId1,nodeId2)
+//****************End test****************************
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
